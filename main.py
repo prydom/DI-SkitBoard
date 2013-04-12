@@ -14,6 +14,9 @@ GREEN = (  0, 255,   0)
 BLUE = (  0,   0, 255)
 ALPHA =(  0,   0,   0,   0)
 
+# instructions text
+INSTRUCTIONS = "This is the soundboard for the 2013 Twist-o-Rama entry, The Wedding Cake.\n \nSPACE = Door Sound"
+
 # init all modules with defualt settings
 pygame.init()
 
@@ -33,7 +36,7 @@ def mainLoop(surface):
     textRect = pygame.Rect(0, 0, 400, 120)
     textSurface = surface.convert_alpha()
     textSurface.fill(ALPHA)
-    textWrap.drawText(textSurface, 'This is the soundboard for the 2013 Twist-o-Rama entry, The Wedding Cake.\n \nSPACE = Door Sound', BLACK, textRect, fontObj, True)
+    textWrap.drawText(textSurface, INSTRUCTIONS, BLACK, textRect, fontObj, True)
     while running: # main program loop
         event = pygame.event.wait()
         if event.type == QUIT: #handle the QUIT event
