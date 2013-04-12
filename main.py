@@ -32,7 +32,7 @@ def main():
 def mainLoop(surface):
     running = True
     #display some instructions
-    fontObj = pygame.font.Font('C:\Windows\Fonts\lucon.TTF', 12) # this causes a windows dependence!!!
+    fontObj = pygame.font.Font('C:\\Windows\\Fonts\\lucon.TTF', 12) # this causes a windows dependence!!!
     textRect = pygame.Rect(0, 0, 400, 120)
     textSurface = surface.convert_alpha()
     textSurface.fill(ALPHA)
