@@ -1,3 +1,4 @@
+from pygame.locals import *
 # draw some text into an area of a surface
 # automatically wraps words
 # returns any text that didn't get blitted
