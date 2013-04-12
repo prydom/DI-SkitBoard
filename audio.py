@@ -30,7 +30,7 @@ def get_current_song():
 
 def music_play_next():
     global current_song
-    if current_song < len(music_files):
+    if current_song < len(music_files) and current_song != len(music_files)-1:
         current_song += 1
     else:
         return None
