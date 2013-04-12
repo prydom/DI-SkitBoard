@@ -35,7 +35,7 @@ def drawText(surface, text, color, rect, font, aa=False, bkg=None):
             image = font.render(nT, 1, color, bkg)
             image.set_colorkey(bkg)
         else:
-            nT = text[:i].rstrip(' \n')
+            nT = text[:i].strip(' \n')
             image = font.render(nT, aa, color)
  
         surface.blit(image, (rect.left, y))
