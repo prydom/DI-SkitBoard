@@ -1,4 +1,4 @@
-import pygame, textWrap
+import pygame, textWrap, audio
 from pygame.locals import *
 
 # set up display refresh event
