@@ -1,4 +1,4 @@
-import pygame, sys
+import pygame, sys, textWrap
 from pygame.locals import *
 
 # set some basic color constants
@@ -19,9 +19,9 @@ pygame.display.set_caption("DI-SkitBoard")
 
 #display some instructions
 fontObj = pygame.font.Font('C:\Windows\Fonts\lucon.TTF', 12) # this causes a windows dependence!!!
-textInstuctionsSurface = fontObj.render('This is a test', True, BLACK)
+textInstuctionsSurface = fontObj.render('This is the soundboard for the 2013 Twist-o-Rama entry, The Wedding Cake.', True, BLACK)
 textRectObj = textInstuctionsSurface.get_rect()
-textRectObj.center = (200,150)
+# textRectObj.center = (200,150) # relocates text
 
 while True: # main program loop
 	DISPLAYSURF.fill(WHITE)
