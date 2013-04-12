@@ -15,7 +15,14 @@ BLUE = (  0,   0, 255)
 ALPHA =(  0,   0,   0,   0)
 
 # instructions text
-INSTRUCTIONS = "This is the soundboard for the 2013 Twist-o-Rama entry, The Wedding Cake.\n  \nRIGHT and LEFT = NEXT and PREVIOUS song \n UP = Pause music \n SPACE = Door Sound \n M = faint sound \n N = dun dun dun sound"
+def format_text():
+    text = "This is the soundboard for the 2013 Twist-o-Rama entry, The Wedding Cake.\n  \nRIGHT and LEFT = NEXT and PREVIOUS song \n UP = Pause music \n SPACE = Door Sound \n M = faint sound \n N = dun dun dun sound \n \n Current song: {0}".format(audio.get_current_song())
+    return text
+
+def draw_text(textSurface, textRect, fontObj):
+    text = format_text()
+    textSurface.fill(ALPHA)
+    textWrap.drawText(textSurface, text, BLACK, textRect, fontObj, True)
 
 # init all modules with defualt settings
 pygame.init()
@@ -35,8 +42,7 @@ def mainLoop(surface):
     fontObj = pygame.font.Font('C:\\Windows\\Fonts\\lucon.TTF', 12) # this causes a windows dependence!!!
     textRect = pygame.Rect(0, 0, 400, 120)
     textSurface = surface.convert_alpha()
-    textSurface.fill(ALPHA)
-    textWrap.drawText(textSurface, INSTRUCTIONS, BLACK, textRect, fontObj, True)
+    draw_text(textSurface, textRect, fontObj)
     paused = False
     while running: # main program loop
         event = pygame.event.wait()
@@ -46,8 +52,10 @@ def mainLoop(surface):
         elif event.type == KEYDOWN:
             if event.key == K_RIGHT:
                 audio.music_play_next()
+                draw_text(textSurface, textRect, fontObj)
             elif event.key == K_LEFT:
                 audio.music_play_previous()
+                draw_text(textSurface, textRect, fontObj)
             elif event.key == K_UP:
                 if audio.music_active():
                     if paused == False:
