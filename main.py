@@ -17,29 +17,29 @@ BLUE = (  0,   0, 255)
 pygame.init()
 
 def main():
-	# get a pygame.surface for the window
-	DISPLAYSURF = pygame.display.set_mode((400,300))
-	# set the window title
-	pygame.display.set_caption("DI-SkitBoard")
-	mainLoop(DISPLAYSURF)
+    # get a pygame.surface for the window
+    DISPLAYSURF = pygame.display.set_mode((400,300))
+    # set the window title
+    pygame.display.set_caption("DI-SkitBoard")
+    mainLoop(DISPLAYSURF)
 
 
 
 def mainLoop(surface):
-	running = True
-	#display some instructions
-	fontObj = pygame.font.Font('C:\Windows\Fonts\lucon.TTF', 12) # this causes a windows dependence!!!
-	textRect = pygame.Rect(0, 0, 400, 36)
-	while running: # main program loop
-		for event in pygame.event.get():
-			if event.type == QUIT: #handle the QUIT event
-				pygame.quit()
-				sys.exit()
-			if event.type == DISPLAY_REFRESH:
-				surface.fill(WHITE)
-				textWrap.drawText(surface, 'This is the soundboard for the 2013 Twist-o-Rama entry, The Wedding Cake.', BLACK, textRect, fontObj, True)
-				pygame.display.update()
-			pygame.time.wait(0)
-		
+    running = True
+    #display some instructions
+    fontObj = pygame.font.Font('C:\Windows\Fonts\lucon.TTF', 12) # this causes a windows dependence!!!
+    textRect = pygame.Rect(0, 0, 400, 36)
+    while running: # main program loop
+        for event in pygame.event.get():
+            if event.type == QUIT: #handle the QUIT event
+                pygame.quit()
+                sys.exit()
+            elif event.type == DISPLAY_REFRESH:
+                surface.fill(WHITE)
+                textWrap.drawText(surface, 'This is the soundboard\n for the 2013 Twist-o-Rama entry, The Wedding Cake.', BLACK, textRect, fontObj, True)
+                pygame.display.update()
+            pygame.time.wait(0)
+        
 if __name__ == '__main__':
     main()
