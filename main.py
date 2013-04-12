@@ -15,7 +15,7 @@ BLUE = (  0,   0, 255)
 ALPHA =(  0,   0,   0,   0)
 
 # instructions text
-INSTRUCTIONS = "This is the soundboard for the 2013 Twist-o-Rama entry, The Wedding Cake.\n \nSPACE = Door Sound"
+INSTRUCTIONS = "This is the soundboard for the 2013 Twist-o-Rama entry, The Wedding Cake.\n  \nRIGHT and LEFT = NEXT and PREVIOUS song \n SPACE = Door Sound"
 
 # init all modules with defualt settings
 pygame.init()
@@ -37,11 +37,27 @@ def mainLoop(surface):
     textSurface = surface.convert_alpha()
     textSurface.fill(ALPHA)
     textWrap.drawText(textSurface, INSTRUCTIONS, BLACK, textRect, fontObj, True)
+    paused = False
     while running: # main program loop
         event = pygame.event.wait()
         if event.type == QUIT: #handle the QUIT event
             pygame.quit()
             running = False
+        elif event.type == KEYDOWN:
+            if event.key == K_RIGHT:
+                audio.music_play_next()
+            elif event.key == K_LEFT:
+                audio.music_play_previous()
+            elif event.key == K_UP:
+                if audio.music_active():
+                    if paused == False:
+                        audio.music_pause()
+                        paused = True
+                    else:
+                        audio.music_unpause()
+                        paused = False
+            elif event.key == K_SPACE:
+                audio.door_play()
         elif event.type == DISPLAY_REFRESH:
             surface.fill(WHITE)
             surface.blit(textSurface, textRect) 
