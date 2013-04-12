@@ -13,7 +13,20 @@ current_song = -1
 MUSIC_VOLUME = 0.2
 
 # Sound effects
+SE_VOLUME = 1.0
 soundDoor = pygame.mixer.Sound(SND_PATH + "#door.wav")
+soundDoor.set_volume(SE_VOLUME)
+soundFaint = pygame.mixer.Sound(SND_PATH + "#sigh and fall.wav")
+soundFaint.set_volume(SE_VOLUME)
+soundDun = pygame.mixer.Sound(SND_PATH + "#Dun Dun Dun.wav")
+soundDun.set_volume(SE_VOLUME)
+
+def get_current_song():
+    global current_song
+    if current_song == -1:
+        return "No Music yet"
+    else:
+        return music_files[current_song]
 
 def music_play_next():
     global current_song
@@ -52,3 +65,9 @@ def music_active():
     
 def door_play():
     soundDoor.play()
+
+def faint_play():
+    soundFaint.play()
+    
+def dun_play():
+    soundDun.play()
