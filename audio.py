@@ -32,3 +32,8 @@ def music_play_back():
     pygame.mixer.music.load(next_song)
     pygame.mixer.music.play(-1)
     
+def music_pause():
+    pygame.mixer.music.pause()
+    
+def music_unpause():
+    pygame.mixer.music.unpause()
