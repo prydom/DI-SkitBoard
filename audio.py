@@ -19,4 +19,16 @@ def music_play_next():
         pygame.mixer.music.fadeout(500)
     pygame.mixer.music.load(next_song)
     pygame.mixer.music.play(-1)
+
+def music_play_back():
+    global current_song
+    if current_song > 0:
+        current_song -= 1
+    else:
+        return None
+    next_song = SND_PATH + music_files[current_song]
+    if pygame.mixer.music.get_busy():
+        pygame.mixer.music.fadeout(500)
+    pygame.mixer.music.load(next_song)
+    pygame.mixer.music.play(-1)
     
