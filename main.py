@@ -1,4 +1,4 @@
-import pygame, sys, textWrap
+import pygame, textWrap
 from pygame.locals import *
 
 # set up display refresh event
@@ -38,7 +38,7 @@ def mainLoop(surface):
         event = pygame.event.wait()
         if event.type == QUIT: #handle the QUIT event
             pygame.quit()
-            sys.exit()
+            running = False
         elif event.type == DISPLAY_REFRESH:
             surface.fill(WHITE)
             surface.blit(textSurface, textRect) 
