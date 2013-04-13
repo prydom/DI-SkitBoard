@@ -7,8 +7,8 @@ pygame.mixer.init()
 SND_PATH = 'D:\\Dropbox\\Sound Effects and Music for DI\\'
 
 # Music
-music_files = ['1mellow.mp3', '2tention.mp3', '3suspence.mp3', '4Cheerful.mp3',
-                '5conflict.mp3']
+music_files = ['1mellow.mp3', '2Tention.mp3', '3conflict.mp3', '4Questioning.mp3', '3conflict.mp3', '4Questioning.mp3', '3conflict.mp3', '5Cheerful.mp3',
+                '6Tragic.mp3']
 current_song = -1
 MUSIC_VOLUME = 0.2
 
@@ -38,7 +38,10 @@ def music_play_next():
     if pygame.mixer.music.get_busy():
         pygame.mixer.music.fadeout(500)
     pygame.mixer.music.load(next_song)
-    pygame.mixer.music.set_volume(MUSIC_VOLUME)
+    if music_files[current_song] == '6Tragic.mp3':
+        pygame.mixer.music.set_volume(1.0)
+    else:
+        pygame.mixer.music.set_volume(MUSIC_VOLUME)
     pygame.mixer.music.play(-1)
 
 def music_play_previous():
