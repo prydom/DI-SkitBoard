@@ -43,6 +43,7 @@ def mainLoop(surface):
     textRect = pygame.Rect(0, 0, 400, 120)
     textSurface = surface.convert_alpha()
     draw_text(textSurface, textRect, fontObj)
+    #music paused?
     paused = False
     while running: # main program loop
         event = pygame.event.wait()

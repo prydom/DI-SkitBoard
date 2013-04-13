@@ -7,8 +7,8 @@ pygame.mixer.init()
 SND_PATH = 'D:\\Dropbox\\Sound Effects and Music for DI\\'
 
 # Music
-music_files = ['1mellow.mp3', '2suspence.wav', '3Questioning.mp3', '4conflict.mp3',
-                '5Cheerful.mp3', '6Tragic.mp3']
+music_files = ['1mellow.mp3', '2tention.mp3', '3suspence.mp3', '4Cheerful.mp3',
+                '5conflict.mp3']
 current_song = -1
 MUSIC_VOLUME = 0.2
 
