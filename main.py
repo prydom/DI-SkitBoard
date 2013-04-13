@@ -52,9 +52,15 @@ def mainLoop(surface):
             running = False
         elif event.type == KEYDOWN:
             if event.key == K_RIGHT:
+                if paused:
+                    paused = False
+                    audio.music_unpause()
                 audio.music_play_next()
                 draw_text(textSurface, textRect, fontObj)
             elif event.key == K_LEFT:
+                if paused:
+                    paused = False
+                    audio.music_unpause()
                 audio.music_play_previous()
                 draw_text(textSurface, textRect, fontObj)
             elif event.key == K_UP:
